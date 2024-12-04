@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Question Papers</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #343a40;
+    margin-top: 20px;
+  }
+  
+  form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  form input,
+  form select,
+  form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+  
+  table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+</style>
+</head>
+<body>
+  <h1>View Question Papers</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Department</th>
+        <th>Class</th>
+        <th>Student Name</th>
+        <th>Roll Number</th>
+        <th>Question Paper Code</th>
+        <th>Uploaded Question Paper</th>
+        <th>Status</th>
+        <th>Last Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((questionPaper) => { %>
+        <tr>
+          <td><%= questionPaper.department %></td>
+          <td><%= questionPaper.class %></td>
+          <td><%= questionPaper.studentName %></td>
+          <td><%= questionPaper.rollNumber %></td>
+          <td><%= questionPaper.questionPaperCode %></td>
+          <td>
+            <a href="/uploads/<%= questionPaper.questionPaperFile %>" target="_blank">Download</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
