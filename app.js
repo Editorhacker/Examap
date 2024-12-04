@@ -24,7 +24,7 @@ if (!fs.existsSync(uploadDir)) {
 
 // MongoDB connection
 mongoose
-  .connect('mongodb://localhost:27017/examManagement', {
+  .connect('mongodb+srv://Adi:Adi@exammanagement.2pfd1.mongodb.net/?retryWrites=true&w=majority&appName=examManagement', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
